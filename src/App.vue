@@ -32,11 +32,12 @@ function setDefaultInputValue(data){
           :title="'標題'"
           :placeholder="'請輸入關鍵字'"
           :approved="true"
-          :disabled="true"
+          :disabled="false"
+          :tips="{
+            success: '可以註冊使用',
+            fail: '錯誤格式提示'
+          }"
         ></DefaultInput>
-          <!-- :rules="function(){
-            console.log('自訂規則')
-          }" -->
       </Layout>
       <Layout>
           <el-button>Default</el-button>
