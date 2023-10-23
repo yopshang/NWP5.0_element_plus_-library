@@ -16,8 +16,7 @@ const modelValue = ref('')
 const emitModelValue = defineEmits(['modelValue'])
 
 watchEffect(() => {
-    console.log('watchEffect:', modelValue.value)
-    emitModelValue('sendModelValue', modelValue.value)
+    emitModelValue('setInputValue', modelValue.value)
 
 })
 

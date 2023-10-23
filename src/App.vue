@@ -28,10 +28,8 @@ function setDefaultInputValue(data){
     </el-col>
       <Layout>
         <DefaultInput
-          @send-model-value="setDefaultInputValue"
+          @set-input-value="setDefaultInputValue"
         ></DefaultInput>
-        <span style="color: white;">defaultInputValue:{{ defaultInputValue }}</span>
-
       </Layout>
       <Layout>
           <el-button>Default</el-button>
