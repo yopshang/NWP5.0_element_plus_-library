@@ -52,22 +52,28 @@
     }
 </style>
 <script setup>
-import { ref, defineProps, defineEmits, watchEffect } from 'vue'
+import { ref, defineProps, defineEmits, watchEffect, watch } from 'vue'
 import DefaultInputStyle from '../../assets/style/DefaultInput.module.scss'
 
 const modelValue = ref('')
 const checkInputStatus = ref('')
 const showTips = ref(false)
 const emitModelValue = defineEmits(['modelValue'])
-watchEffect(() => {
-    emitModelValue('setInputValue', modelValue.value)
-})
 const props = defineProps({
     title: String,
     placeholder: String,Number,
     approved: Boolean,
     disabled: Boolean,
-    tips: Object
+    tips: Object,
+    resetTrigger: Number
+})
+watchEffect(() => {
+    emitModelValue('setInputValue', modelValue.value)
+})
+watch(()=>props.resetTrigger, ()=>{
+    modelValue.value = ''
+    changeStatusTo('blur')
+    showTips.value = false;
 })
 
 function changeStatusTo(thisStatus){

@@ -2,12 +2,25 @@
 import AppStyle from './assets/style/App.module.scss'
 import Layout from "./components/Layout.vue";
 import DefaultInput from './components/inputs/DefaultInput.vue';
-import { ref } from 'vue'
+import { reactive, ref, watch } from 'vue'
 
 const defaultInputValue = ref('')
+const defaultResetTrigger = ref(0)
+const defaultInputTips = reactive({
+  success: '可以註冊使用',
+  fail: '錯誤格式提示'
+})
+const defaultApproved = ref(true)
 function setDefaultInputValue(data){
   defaultInputValue.value = data
 }
+// 驗證input內容範例
+watch(defaultInputValue, ()=>{
+  const pattern = /^[0-9]+$/;
+  let ifPass = pattern.test(defaultInputValue.value)
+  defaultApproved.value = ifPass
+})
+
 
 </script>
 
@@ -31,12 +44,10 @@ function setDefaultInputValue(data){
           @set-input-value="setDefaultInputValue"
           :title="'標題'"
           :placeholder="'請輸入關鍵字'"
-          :approved="true"
+          :approved="defaultApproved"
           :disabled="false"
-          :tips="{
-            success: '可以註冊使用',
-            fail: '錯誤格式提示'
-          }"
+          :tips="defaultInputTips"
+          :resetTrigger="defaultResetTrigger"
         ></DefaultInput>
       </Layout>
       <Layout>
