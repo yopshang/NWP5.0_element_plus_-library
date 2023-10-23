@@ -1,7 +1,7 @@
 <script setup>
 import AppStyle from './assets/style/App.module.scss'
 import Layout from "./components/Layout.vue";
-import DefaultInput from './components/inputs/defaultInput.vue'
+import DefaultInput from './components/inputs/DefaultInput.vue';
 import { ref } from 'vue'
 
 const defaultInputValue = ref('')
@@ -29,7 +29,14 @@ function setDefaultInputValue(data){
       <Layout>
         <DefaultInput
           @set-input-value="setDefaultInputValue"
+          :title="'標題'"
+          :placeholder="'請輸入關鍵字'"
+          :approved="true"
+          :disabled="true"
         ></DefaultInput>
+          <!-- :rules="function(){
+            console.log('自訂規則')
+          }" -->
       </Layout>
       <Layout>
           <el-button>Default</el-button>
@@ -74,3 +81,9 @@ function setDefaultInputValue(data){
 
   </el-row>
 </template>
+<style scope>
+body {
+  background: #fff;
+  color: #1F2937;
+}
+</style>
