@@ -4,6 +4,7 @@ import Layout from "./components/Layout.vue";
 import DefaultInput from './components/inputs/DefaultInput.vue';
 import { reactive, ref, watch } from 'vue'
 
+// default input
 const defaultInputValue = ref('')
 const defaultResetTrigger = ref(0)
 const defaultInputTips = reactive({
@@ -20,6 +21,24 @@ watch(defaultInputValue, ()=>{
   let ifPass = pattern.test(defaultInputValue.value)
   defaultApproved.value = ifPass
 })
+// big default input
+const bigDefaultInputValue = ref('')
+const bigDefaultResetTrigger = ref(0)
+const bigDefaultInputTips = reactive({
+  success: '可以註冊使用',
+  fail: '錯誤格式提示'
+})
+const bigDefaultApproved = ref(true)
+function setBigDefaultInputValue(data){
+  bigDefaultInputValue.value = data
+}
+// 驗證input內容範例
+watch(bigDefaultInputValue, ()=>{
+  const pattern = /^[0-9]+$/;
+  let ifPass = pattern.test(bigDefaultInputValue.value)
+  bigDefaultApproved.value = ifPass
+})
+
 
 
 </script>
@@ -51,12 +70,16 @@ watch(defaultInputValue, ()=>{
         ></DefaultInput>
       </Layout>
       <Layout>
-          <el-button>Default</el-button>
-          <el-button type="primary">Primary</el-button>
-          <el-button type="success">Success</el-button>
-          <el-button type="info">Info</el-button>
-          <el-button type="warning">Warning</el-button>
-          <el-button type="danger">Danger</el-button>
+        <DefaultInput
+          @set-input-value="setBigDefaultInputValue"
+          :title="'標題'"
+          :placeholder="'請輸入關鍵字'"
+          :approved="bigDefaultApproved"
+          :disabled="false"
+          :tips="bigDefaultInputTips"
+          :resetTrigger="bigDefaultResetTrigger"
+          :customStyle="'height:48px;font-size:16px;'"
+        ></DefaultInput>
       </Layout>
       <Layout>
           <el-button>Default</el-button>

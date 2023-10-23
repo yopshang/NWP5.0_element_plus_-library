@@ -4,6 +4,7 @@
         <el-input
         class="w-50 m-2"
         :class="[DefaultInputStyle.custom_input, checkInputStatus]"
+        :style="customStyle"
         size="large"
         :placeholder="placeholder"
         :disabled="disabled"
@@ -65,7 +66,8 @@ const props = defineProps({
     approved: Boolean,
     disabled: Boolean,
     tips: Object,
-    resetTrigger: Number
+    resetTrigger: Number,
+    customStyle: String
 })
 watchEffect(() => {
     emitModelValue('setInputValue', modelValue.value)
