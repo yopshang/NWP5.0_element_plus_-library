@@ -30,7 +30,6 @@
                 <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg"> 
                 <path d="M13.3007 0.709727C12.9107 0.319727 12.2807 0.319727 11.8907 0.709727L7.0007 5.58973L2.1107 0.699727C1.7207 0.309727 1.0907 0.309727 0.700703 0.699727C0.310703 1.08973 0.310703 1.71973 0.700703 2.10973L5.5907 6.99973L0.700703 11.8897C0.310703 12.2797 0.310703 12.9097 0.700703 13.2997C1.0907 13.6897 1.7207 13.6897 2.1107 13.2997L7.0007 8.40973L11.8907 13.2997C12.2807 13.6897 12.9107 13.6897 13.3007 13.2997C13.6907 12.9097 13.6907 12.2797 13.3007 11.8897L8.4107 6.99973L13.3007 2.10973C13.6807 1.72973 13.6807 1.08973 13.3007 0.709727Z" fill="#DC2626"/>
                 </svg>
-    
                 {{ tips.fail }}
             </div>
         </div>
@@ -91,15 +90,17 @@ const props = defineProps({
     customClass: String,
     initValue: String,Number,
 })
+// 傳值到父層
 watchEffect(() => {
     emitModelValue('setInputValue', modelValue.value)
 })
+// 一鍵清空
 watch(()=>props.resetTrigger, ()=>{
     modelValue.value = ''
     changeStatusTo('blur')
     showTips.value = false;
 })
-
+// 控制輸入框狀態
 function changeStatusTo(thisStatus){
     if(!props.approved){
         checkInputStatus.value = 'error';
@@ -123,6 +124,7 @@ function changeStatusTo(thisStatus){
                 break;
         }
 }
+// 控制有警示字樣的輸入框狀態
 function userInputEvent(inputStatus){
     // 轉為非同步避免樣式過早判定
     setTimeout(function(){
@@ -131,6 +133,7 @@ function userInputEvent(inputStatus){
         changeStatusTo(changeStatusToThis)
     },0)
 }
+// 父層傳入的初始值
 modelValue.value = props.initValue;
 
 
