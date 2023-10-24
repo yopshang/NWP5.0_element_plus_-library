@@ -12,12 +12,18 @@
         :customStyle="customStyle"
         :maxlength="10"
         :show-word-limit="true"
+        :custom-class="'textArea'"
     ></DefaultInput>
 </template>
-<style scoped lang="scss">
-   .el-input__suffix {
-    transform: translate(14px, 32px);
-   }
+<style lang="scss">
+    .textArea {
+        .el-input__suffix {
+            transform: translate(14px, 32px);
+        }
+        .el-textarea__inner:focus {
+            box-shadow: 0 0 0 1px #3B82F6;
+        }
+    }
 </style>
 <script setup>
 import { ref, defineProps, defineEmits, watchEffect, watch } from 'vue'

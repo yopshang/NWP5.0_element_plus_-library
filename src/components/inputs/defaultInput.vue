@@ -1,5 +1,5 @@
 <template>
-    <div :class="DefaultInputStyle.container">
+    <div :class="DefaultInputStyle.container" class="defaultInput">
         <div :class="DefaultInputStyle.title">{{ title }}</div>
         <el-input
         class="w-50 m-2"
@@ -36,20 +36,27 @@
         </div>
     </div>
 </template>
-<style scope lang="scss">
-    .hover{
-        border:1px #3B82F6 solid;
+<style lang="scss">
+.defaultInput {
+    .hover:not(.textArea) .el-input__wrapper{
+        // border:1px #3B82F6 solid;
+        box-shadow: 0 0 0 1px #3B82F6;
     }
     .focus,
-    .focus-visible {
+    .focus-visible{
         border:1px #3B82F6 solid;
         box-shadow: 0px 0px 16px 0px rgba(0, 0, 0, 0.2);
     }
-    .default{
-        border:1px #E5E7EB solid;
+    .default .el-input__wrapper{
+        // border:1px #E5E7EB solid;
+        box-shadow: 0 0 0 1px #E5E7EB;
     }
     .error {
-        border:1px #DC2626 solid;
+        // box-shadow: 0 0 0 1px #DC2626;
+        // border:1px #DC2626 solid;
+        .el-input__wrapper.is-focus {
+            box-shadow: 0 0 0 1px #DC2626 !important;
+        }
     }
     .is-disabled>.el-input__wrapper{
         background: #E5E7EB !important;
@@ -57,6 +64,7 @@
     .el-input__wrapper {
         box-shadow: none !important;
     }
+}
 </style>
 <script setup>
 import { ref, defineProps, defineEmits, watchEffect, watch } from 'vue'

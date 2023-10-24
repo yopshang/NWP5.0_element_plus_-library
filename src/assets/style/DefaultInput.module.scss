@@ -22,10 +22,13 @@
     border:1px #E5E7EB solid;
     margin-bottom: 4px;
     &.focus{
-        border:1px #3B82F6 solid;
+        // border:1px #3B82F6 solid;
+        box-shadow: 0 0 0 1px #3B82F6;
     }
     &.error{
-        border:1px #DC2626 solid;
+        // border:1px #DC2626 solid;
+        box-shadow: 0 0 0 1px #DC2626;
+
     }
 }
 .tips{
