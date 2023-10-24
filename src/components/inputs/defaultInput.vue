@@ -47,14 +47,14 @@
         border:1px #3B82F6 solid;
         box-shadow: 0px 0px 16px 0px rgba(0, 0, 0, 0.2);
     }
-    .default .el-input__wrapper{
+    .default:not(.error) .el-input__wrapper{
         // border:1px #E5E7EB solid;
         box-shadow: 0 0 0 1px #E5E7EB;
     }
     .error {
         // box-shadow: 0 0 0 1px #DC2626;
         // border:1px #DC2626 solid;
-        .el-input__wrapper.is-focus {
+        .el-input__wrapper {
             box-shadow: 0 0 0 1px #DC2626 !important;
         }
     }
