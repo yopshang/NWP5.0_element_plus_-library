@@ -10,10 +10,14 @@
         :type="password"
         :show-password="true"
         :customStyle="customStyle"
+        :maxlength="10"
+        :show-word-limit="true"
     ></DefaultInput>
 </template>
 <style scope lang="scss">
-   
+   .el-input__suffix {
+    transform: translate(14px, 32px);
+   }
 </style>
 <script setup>
 import { ref, defineProps, defineEmits, watchEffect, watch } from 'vue'

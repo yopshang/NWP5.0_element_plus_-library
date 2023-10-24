@@ -10,6 +10,8 @@
         :disabled="disabled"
         :type="type"
         :show-password="showPassword"
+        :maxlength="maxlength"
+        :show-word-limit="showWordLimit"
         v-model="modelValue"
         @focus="userInputEvent('focus')"
         @blur="userInputEvent('blur')"
@@ -75,7 +77,9 @@ const props = defineProps({
     suffixIcon: Object,
     prefixIcon:Object,
     type: String,
-    showPassword: Boolean
+    showPassword: Boolean,
+    showWordLimit: Boolean,
+    maxlength: Number
 })
 watchEffect(() => {
     emitModelValue('setInputValue', modelValue.value)

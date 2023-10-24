@@ -4,6 +4,7 @@ import Layout from "./components/Layout.vue";
 import DefaultInput from './components/inputs/DefaultInput.vue';
 import { reactive, ref, watch } from 'vue'
 import PasswordInput from './components/inputs/passwordInput.vue'
+import LimitedInput from './components/inputs/LimitedInput.vue'
 
 // default input
 const defaultInputValue = ref('')
@@ -102,28 +103,49 @@ function setPassWordValue(data){
         ></PasswordInput>
       </Layout>
       <Layout>
-          <el-button>Default</el-button>
-          <el-button type="primary">Primary</el-button>
-          <el-button type="success">Success</el-button>
-          <el-button type="info">Info</el-button>
-          <el-button type="warning">Warning</el-button>
-          <el-button type="danger">Danger</el-button>
+        <PasswordInput
+          @set-input-value="setPassWordValue"
+          :title="'設定密碼'"
+          :placeholder="'使用8~20個英數混合字元'"
+          :approved="true"
+          :disabled="disabled"
+          :tips="''"
+          :resetTrigger="resetPasswordTrigger"
+          :type="'password'"
+          :show-password="true"
+          :customStyle="'height:48px;font-size:16px;'"
+        ></PasswordInput>
       </Layout>
       <Layout>
-          <el-button>Default</el-button>
-          <el-button type="primary">Primary</el-button>
-          <el-button type="success">Success</el-button>
-          <el-button type="info">Info</el-button>
-          <el-button type="warning">Warning</el-button>
-          <el-button type="danger">Danger</el-button>
+        <LimitedInput
+          @set-input-value="setPassWordValue"
+          :title="'標題'"
+          :placeholder="'請輸入關鍵字'"
+          :approved="true"
+          :disabled="disabled"
+          :tips="''"
+          :resetTrigger="resetPasswordTrigger"
+          :type="'text'"
+          :show-password="false"
+          :maxlength="20"
+          :show-word-limit="true"
+        ></LimitedInput>
       </Layout>
       <Layout>
-          <el-button>Default</el-button>
-          <el-button type="primary">Primary</el-button>
-          <el-button type="success">Success</el-button>
-          <el-button type="info">Info</el-button>
-          <el-button type="warning">Warning</el-button>
-          <el-button type="danger">Danger</el-button>
+        <LimitedInput
+          @set-input-value="setPassWordValue"
+          :title="'標題'"
+          :placeholder="'請輸入關鍵字'"
+          :approved="true"
+          :disabled="disabled"
+          :tips="''"
+          :resetTrigger="resetPasswordTrigger"
+          :type="'text'"
+          :show-password="false"
+          :maxlength="20"
+          :show-word-limit="true"
+          :customStyle="'height:48px;font-size:16px;'"
+        ></LimitedInput>
       </Layout>
 
   </el-row>
