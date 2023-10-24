@@ -3,6 +3,7 @@ import AppStyle from './assets/style/App.module.scss'
 import Layout from "./components/Layout.vue";
 import DefaultInput from './components/inputs/DefaultInput.vue';
 import { reactive, ref, watch } from 'vue'
+import PasswordInput from './components/inputs/passwordInput.vue'
 
 // default input
 const defaultInputValue = ref('')
@@ -40,8 +41,11 @@ watch(bigDefaultInputValue, ()=>{
 })
 
 // password input
-const setPassWordValue = ref('');
+const passWordValue = ref('');
 const resetPasswordTrigger = ref(0)
+function setPassWordValue(data){
+  passWordValue.value = data
+}
 
 
 </script>
@@ -85,7 +89,7 @@ const resetPasswordTrigger = ref(0)
         ></DefaultInput>
       </Layout>
       <Layout>
-        <DefaultInput
+        <PasswordInput
           @set-input-value="setPassWordValue"
           :title="'設定密碼'"
           :placeholder="'使用8~20個英數混合字元'"
@@ -95,7 +99,7 @@ const resetPasswordTrigger = ref(0)
           :resetTrigger="resetPasswordTrigger"
           :type="'password'"
           :show-password="true"
-        ></DefaultInput>
+        ></PasswordInput>
       </Layout>
       <Layout>
           <el-button>Default</el-button>
