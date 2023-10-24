@@ -39,6 +39,9 @@ watch(bigDefaultInputValue, ()=>{
   bigDefaultApproved.value = ifPass
 })
 
+// password input
+const setPassWordValue = ref('');
+const resetPasswordTrigger = ref(0)
 
 
 </script>
@@ -82,12 +85,17 @@ watch(bigDefaultInputValue, ()=>{
         ></DefaultInput>
       </Layout>
       <Layout>
-          <el-button>Default</el-button>
-          <el-button type="primary">Primary</el-button>
-          <el-button type="success">Success</el-button>
-          <el-button type="info">Info</el-button>
-          <el-button type="warning">Warning</el-button>
-          <el-button type="danger">Danger</el-button>
+        <DefaultInput
+          @set-input-value="setPassWordValue"
+          :title="'設定密碼'"
+          :placeholder="'使用8~20個英數混合字元'"
+          :approved="true"
+          :disabled="disabled"
+          :tips="''"
+          :resetTrigger="resetPasswordTrigger"
+          :type="'password'"
+          :show-password="true"
+        ></DefaultInput>
       </Layout>
       <Layout>
           <el-button>Default</el-button>
