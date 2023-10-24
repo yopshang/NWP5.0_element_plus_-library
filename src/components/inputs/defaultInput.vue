@@ -100,28 +100,31 @@ watch(()=>props.resetTrigger, ()=>{
 })
 
 function changeStatusTo(thisStatus){
-    switch(thisStatus){
-        case 'focus':
-            checkInputStatus.value = 'focus';
-            break;
-        case 'blur':
-            checkInputStatus.value = 'default';
-            break;
-        case 'hover':
-            checkInputStatus.value = 'hover';
-            break;
-        case 'error':
-            checkInputStatus.value = 'error';
-            break;
-        default:
-            checkInputStatus.value = 'default';
-            break;
-    }
+        switch(thisStatus){
+            case 'focus':
+                checkInputStatus.value = 'focus';
+                break;
+            case 'blur':
+                checkInputStatus.value = 'default';
+                break;
+            case 'hover':
+                checkInputStatus.value = 'hover';
+                break;
+            case 'error':
+                checkInputStatus.value = 'error';
+                break;
+            default:
+                checkInputStatus.value = 'default';
+                break;
+        }
 }
 function userInputEvent(inputStatus){
-    showTips.value = true;
-    let changeStatusToThis = props.approved?inputStatus:'error';
-    changeStatusTo(changeStatusToThis)
+    // 轉為非同步避免樣式過早判定
+    setTimeout(function(){
+        showTips.value = true;
+        let changeStatusToThis = props.approved?inputStatus:'error';
+        changeStatusTo(changeStatusToThis)
+    },0)
 }
 
 
