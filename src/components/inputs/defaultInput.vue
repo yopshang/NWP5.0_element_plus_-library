@@ -38,7 +38,7 @@
 </template>
 <style lang="scss">
 .defaultInput {
-    .hover:not(.textArea) .el-input__wrapper{
+    .hover:not(.textArea):not(.error){
         // border:1px #3B82F6 solid;
         box-shadow: 0 0 0 1px #3B82F6;
     }
@@ -101,6 +101,10 @@ watch(()=>props.resetTrigger, ()=>{
 })
 
 function changeStatusTo(thisStatus){
+    if(!props.approved){
+        checkInputStatus.value = 'error';
+        return
+    }
         switch(thisStatus){
             case 'focus':
                 checkInputStatus.value = 'focus';
