@@ -3,7 +3,7 @@
         <div :class="DefaultInputStyle.title">{{ title }}</div>
         <el-input
         class="w-50 m-2"
-        :class="[DefaultInputStyle.custom_input, checkInputStatus]"
+        :class="[DefaultInputStyle.custom_input, checkInputStatus, customClass]"
         :style="customStyle"
         size="large"
         :placeholder="placeholder"
@@ -79,7 +79,8 @@ const props = defineProps({
     type: String,
     showPassword: Boolean,
     showWordLimit: Boolean,
-    maxlength: Number
+    maxlength: Number,
+    customClass: String,
 })
 watchEffect(() => {
     emitModelValue('setInputValue', modelValue.value)

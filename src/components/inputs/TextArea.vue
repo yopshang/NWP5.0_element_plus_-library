@@ -12,13 +12,12 @@
         :customStyle="customStyle"
         :maxlength="10"
         :show-word-limit="true"
-        :customClass="'LimitedInput'"
     ></DefaultInput>
 </template>
-<style lang="scss">
-    .LimitedInput .el-input__suffix {
-        transform: translate(14px, 32px);
-    }
+<style scoped lang="scss">
+   .el-input__suffix {
+    transform: translate(14px, 32px);
+   }
 </style>
 <script setup>
 import { ref, defineProps, defineEmits, watchEffect, watch } from 'vue'

@@ -5,6 +5,7 @@ import DefaultInput from './components/inputs/DefaultInput.vue';
 import { reactive, ref, watch } from 'vue'
 import PasswordInput from './components/inputs/passwordInput.vue'
 import LimitedInput from './components/inputs/LimitedInput.vue'
+import TextArea from './components/inputs/TextArea.vue'
 
 // default input
 const defaultInputValue = ref('')
@@ -53,7 +54,6 @@ function setPassWordValue(data){
 
 <template>
   <div>
-    
     <a href="https://vitejs.dev" target="_blank">
       <img src="/vite.svg" :class="AppStyle.logo" alt="Vite logo" />
     </a>
@@ -149,8 +149,29 @@ function setPassWordValue(data){
       </Layout>
 
   </el-row>
+  <hr>
+  <el-row :gutter="20">
+    <el-col :span="24">
+      <h2>Textarea</h2>
+    </el-col>
+    <Layout>
+      <TextArea
+          @set-input-value="setPassWordValue"
+          :title="'標題'"
+          :placeholder="'請輸入關鍵字'"
+          :approved="true"
+          :disabled="disabled"
+          :tips="''"
+          :resetTrigger="resetPasswordTrigger"
+          :type="'textarea'"
+          :show-password="false"
+          :maxlength="20"
+          :show-word-limit="true"
+      ></TextArea>
+    </Layout>
+  </el-row>
 </template>
-<style scope>
+<style>
 body {
   background: #fff;
   color: #1F2937;

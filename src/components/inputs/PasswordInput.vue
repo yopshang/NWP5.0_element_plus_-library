@@ -12,7 +12,7 @@
         :customStyle="customStyle"
     ></DefaultInput>
 </template>
-<style scope lang="scss">
+<style scoped lang="scss">
    
 </style>
 <script setup>
