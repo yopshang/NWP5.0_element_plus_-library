@@ -13,7 +13,7 @@
         :maxlength="maxlength"
         :show-word-limit="showWordLimit"
         v-model="modelValue"
-        @focus="userInputEvent('focus')"
+        @focus="userInputEvent('focus');ifFirstFocus = false"
         @blur="userInputEvent('blur')"
         @mouseover="changeStatusTo('hover')"
         @mouseleave="changeStatusTo('blur')"
@@ -73,6 +73,7 @@ const modelValue = ref('')
 const checkInputStatus = ref('')
 const showTips = ref(false)
 const emitModelValue = defineEmits(['modelValue'])
+const ifFirstFocus = ref(true)
 const props = defineProps({
     title: String,
     placeholder: String,Number,
@@ -102,7 +103,7 @@ watch(()=>props.resetTrigger, ()=>{
 })
 // 控制輸入框狀態
 function changeStatusTo(thisStatus){
-    if(!props.approved){
+    if(!props.approved && !ifFirstFocus.value){ // 第一次 focus前不進行錯誤判定
         checkInputStatus.value = 'error';
         return
     }
@@ -128,15 +129,12 @@ function changeStatusTo(thisStatus){
 function userInputEvent(inputStatus){
     // 轉為非同步避免樣式過早判定
     setTimeout(function(){
-        showTips.value = true;
-        let changeStatusToThis = props.approved?inputStatus:'error';
-        changeStatusTo(changeStatusToThis)
+            showTips.value = true;
+            changeStatusTo(inputStatus)
     },0)
 }
 // 父層傳入的初始值
 modelValue.value = props.initValue;
-
-
 
 
 </script>
