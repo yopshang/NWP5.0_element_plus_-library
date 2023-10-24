@@ -75,6 +75,7 @@ function setPassWordValue(data){
           :disabled="false"
           :tips="defaultInputTips"
           :resetTrigger="defaultResetTrigger"
+          :initValue="'測試初始值'"
         ></DefaultInput>
       </Layout>
       <Layout>

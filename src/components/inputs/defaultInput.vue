@@ -89,6 +89,7 @@ const props = defineProps({
     showWordLimit: Boolean,
     maxlength: Number,
     customClass: String,
+    initValue: String,Number,
 })
 watchEffect(() => {
     emitModelValue('setInputValue', modelValue.value)
@@ -126,6 +127,8 @@ function userInputEvent(inputStatus){
         changeStatusTo(changeStatusToThis)
     },0)
 }
+modelValue.value = props.initValue;
+
 
 
 
