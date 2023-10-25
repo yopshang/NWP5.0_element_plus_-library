@@ -49,6 +49,23 @@ const resetPasswordTrigger = ref(0)
 function setPassWordValue(data){
   passWordValue.value = data
 }
+// TextArea input
+const textAreaValue = ref('')
+const resetTextAreaTrigger = ref(0)
+const textAreaApproved = ref(true)
+const textAreaTips = reactive({
+  success: 'TextArea可以註冊使用',
+  fail: 'TextArea錯誤格式提示'
+})
+function setTextAreaValue(data){
+  textAreaValue.value = data
+}
+//  驗證TextArea 範例
+watch(textAreaValue, ()=>{
+  const pattern = /^[0-9]+$/;
+  let ifPass = pattern.test(textAreaValue.value)
+  textAreaApproved.value = ifPass
+})
 
 
 </script>
@@ -163,18 +180,32 @@ function setPassWordValue(data){
     </el-col>
     <Layout>
       <TextArea
+          @set-input-value="setTextAreaValue"
+          :title="'TextArea'"
+          :placeholder="'請輸入關鍵字'"
+          :approved="textAreaApproved"
+          :disabled="false"
+          :tips="textAreaTips"
+          :resetTrigger="resetTextAreaTrigger"
+          :maxlength="false"
+          :show-password="false"
+          :show-word-limit="false"
+      ></TextArea>
+    </Layout>
+    <Layout>
+      <!-- <TextArea
           @set-input-value="setPassWordValue"
           :title="'標題'"
           :placeholder="'請輸入關鍵字'"
           :approved="true"
           :disabled="disabled"
-          :tips="''"
+          :tips="textAreaTips"
           :resetTrigger="resetPasswordTrigger"
           :type="'textarea'"
-          :show-password="false"
-          :maxlength="20"
-          :show-word-limit="true"
-      ></TextArea>
+          :maxlength="false"
+          :show-password="true"
+          :show-word-limit="false"
+      ></TextArea> -->
     </Layout>
   </el-row>
 </template>

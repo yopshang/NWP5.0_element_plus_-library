@@ -37,12 +37,13 @@
 </template>
 <style lang="scss">
 .defaultInput {
-    .hover:not(.textArea):not(.error){
+    .hover:not(.textArea):not(.error),
+    .hover:not(.error) .el-textarea__inner{
         // border:1px #3B82F6 solid;
         box-shadow: 0 0 0 1px #3B82F6;
     }
-    .focus,
-    .focus-visible{
+    .focus:not(.textArea),
+    .focus-visible:not(.textArea){
         border:1px #3B82F6 solid;
         box-shadow: 0px 0px 16px 0px rgba(0, 0, 0, 0.2);
     }
@@ -72,11 +73,11 @@ import DefaultInputStyle from '../../assets/style/DefaultInput.module.scss'
 const modelValue = ref('')
 const checkInputStatus = ref('')
 const showTips = ref(false)
-const emitModelValue = defineEmits(['modelValue'])
+const emitModelValue = defineEmits(['setInputValue'])
 const ifFirstFocus = ref(true)
 const props = defineProps({
     title: String,  // 標題
-    placeholder: String,Number,
+    placeholder: [String,Number],
     approved: Boolean, // 驗證值是否通過
     disabled: Boolean,
     tips: Object,
@@ -87,9 +88,9 @@ const props = defineProps({
     type: String,
     showPassword: Boolean,
     showWordLimit: Boolean,
-    maxlength: Number,
+    maxlength: [Number,Boolean],
     customClass: String,
-    initValue: String,Number, // 傳入初始值
+    initValue: [String,Number], // 傳入初始值
     beforeSubmitVerificationTrigger: Number, // 強制出現驗證樣式（直接送出前呼叫）
 })
 // 傳值到父層
