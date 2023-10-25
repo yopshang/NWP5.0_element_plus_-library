@@ -3,16 +3,16 @@
         <div :class="DefaultInputStyle.title">{{ title }}</div>
         <el-input
         class="w-50 m-2"
+        size="large"
+        v-model="modelValue"
         :class="[DefaultInputStyle.custom_input, checkInputStatus, customClass]"
         :style="customStyle"
-        size="large"
         :placeholder="placeholder"
         :disabled="disabled"
         :type="type"
         :show-password="showPassword"
         :maxlength="maxlength"
         :show-word-limit="showWordLimit"
-        v-model="modelValue"
         @focus="userInputEvent('focus');ifFirstFocus = false"
         @blur="userInputEvent('blur')"
         @mouseover="changeStatusTo('hover')"
@@ -90,6 +90,7 @@ const props = defineProps({
     maxlength: Number,
     customClass: String,
     initValue: String,Number,
+    beforeSubmitVerificationTrigger: Number,
 })
 // 傳值到父層
 watchEffect(() => {
@@ -101,30 +102,38 @@ watch(()=>props.resetTrigger, ()=>{
     changeStatusTo('blur')
     showTips.value = false;
 })
+// 不更改值直接送出資料時啟用強制驗證
+watch(()=>props.beforeSubmitVerificationTrigger, ()=>{
+    ifFirstFocus.value = false
+    userInputEvent('focus')
+})
 // 控制輸入框狀態
 function changeStatusTo(thisStatus){
     if(!props.approved && !ifFirstFocus.value){ // 第一次 focus前不進行錯誤判定
         checkInputStatus.value = 'error';
         return
     }
-        switch(thisStatus){
-            case 'focus':
-                checkInputStatus.value = 'focus';
-                break;
-            case 'blur':
-                checkInputStatus.value = 'default';
-                break;
-            case 'hover':
-                checkInputStatus.value = 'hover';
-                break;
-            case 'error':
-                checkInputStatus.value = 'error';
-                break;
-            default:
-                checkInputStatus.value = 'default';
-                break;
-        }
+    switch(thisStatus){
+        case 'focus':
+            checkInputStatus.value = 'focus';
+            break;
+        case 'blur':
+            checkInputStatus.value = 'default';
+            break;
+        case 'hover':
+            checkInputStatus.value = 'hover';
+            break;
+        case 'error':
+            checkInputStatus.value = 'error';
+            break;
+        default:
+            checkInputStatus.value = 'default';
+            break;
+    }
 }
+// 若不更改就送出 要強制判定是否錯誤然後跳樣式？
+
+
 // 控制有警示字樣的輸入框狀態
 function userInputEvent(inputStatus){
     // 轉為非同步避免樣式過早判定

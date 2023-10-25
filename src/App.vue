@@ -14,6 +14,7 @@ const defaultInputTips = reactive({
   success: '可以註冊使用',
   fail: '錯誤格式提示'
 })
+const defaultForceVerificationTrigger = ref(0)
 const defaultApproved = ref(true)
 function setDefaultInputValue(data){
   defaultInputValue.value = data
@@ -36,11 +37,11 @@ function setBigDefaultInputValue(data){
   bigDefaultInputValue.value = data
 }
 // 驗證input內容範例
-watch(bigDefaultInputValue, ()=>{
-  const pattern = /^[0-9]+$/;
-  let ifPass = pattern.test(bigDefaultInputValue.value)
-  bigDefaultApproved.value = ifPass
-})
+// watch(bigDefaultInputValue, ()=>{
+//   const pattern = /^[0-9]+$/;
+//   let ifPass = pattern.test(bigDefaultInputValue.value)
+//   bigDefaultApproved.value = ifPass
+// })
 
 // password input
 const passWordValue = ref('');
@@ -76,7 +77,12 @@ function setPassWordValue(data){
           :tips="defaultInputTips"
           :resetTrigger="defaultResetTrigger"
           :initValue="'測試初始值'"
+          :beforeSubmitVerificationTrigger="defaultForceVerificationTrigger"
         ></DefaultInput>
+        <!-- <button 
+          type="button"
+          style="color:white;"
+          @click="defaultForceVerificationTrigger++">測試送出按鈕</button> -->
       </Layout>
       <Layout>
         <DefaultInput
