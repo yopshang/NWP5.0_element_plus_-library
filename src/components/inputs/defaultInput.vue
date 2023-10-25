@@ -75,12 +75,12 @@ const showTips = ref(false)
 const emitModelValue = defineEmits(['modelValue'])
 const ifFirstFocus = ref(true)
 const props = defineProps({
-    title: String,
+    title: String,  // 標題
     placeholder: String,Number,
-    approved: Boolean,
+    approved: Boolean, // 驗證值是否通過
     disabled: Boolean,
     tips: Object,
-    resetTrigger: Number,
+    resetTrigger: Number, // 一鍵清空
     customStyle: String,
     suffixIcon: Object,
     prefixIcon:Object,
@@ -89,8 +89,8 @@ const props = defineProps({
     showWordLimit: Boolean,
     maxlength: Number,
     customClass: String,
-    initValue: String,Number,
-    beforeSubmitVerificationTrigger: Number,
+    initValue: String,Number, // 傳入初始值
+    beforeSubmitVerificationTrigger: Number, // 強制出現驗證樣式（直接送出前呼叫）
 })
 // 傳值到父層
 watchEffect(() => {
@@ -131,9 +131,6 @@ function changeStatusTo(thisStatus){
             break;
     }
 }
-// 若不更改就送出 要強制判定是否錯誤然後跳樣式？
-
-
 // 控制有警示字樣的輸入框狀態
 function userInputEvent(inputStatus){
     // 轉為非同步避免樣式過早判定
