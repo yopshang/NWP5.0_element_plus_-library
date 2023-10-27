@@ -14,7 +14,7 @@
     font-family: 'Noto Sans TC';
     text-align: left;
     margin-bottom: 4px;
-    color: #1F2937;
+    color: $default-input-title-color;
 }
 .custom_input {
     width: 300px;
@@ -37,15 +37,15 @@
     display: flex;
     align-items: center;
     &--success {
-        color: $default-input-outline-color--success;
+        color: $default-input-tips-color--success;
         >svg{
-            fill: $default-input-outline-color--success
+            fill: $default-input-tips-color--success
         }
     }
     &--fail {
-        color: $default-input-outline-color--error;
+        color: $default-input-tips-color--error;
         >svg {
-            fill: $default-input-outline-color--error
+            fill: $default-input-tips-color--error
         }
     }
     > svg {
