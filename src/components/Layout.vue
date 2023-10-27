@@ -5,5 +5,5 @@
     </el-col>
 </template>
 <script setup>
-import LayoutStyle from '../assets/style/Layout.module.scss'
+import LayoutStyle from '../assets/style/components/Layout.module.scss'
 </script>

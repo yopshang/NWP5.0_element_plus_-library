@@ -69,7 +69,7 @@
 </style>
 <script setup>
 import { ref, defineProps, defineEmits, watchEffect, watch } from 'vue'
-import DefaultInputStyle from '../../assets/style/DefaultInput.module.scss'
+import DefaultInputStyle from '../../assets/style/components/DefaultInput.module.scss'
 
 const modelValue = ref('')
 const checkInputStatus = ref('')

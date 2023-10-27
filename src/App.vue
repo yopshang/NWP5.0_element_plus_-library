@@ -1,5 +1,5 @@
 <script setup>
-import AppStyle from './assets/style/App.module.scss'
+import AppStyle from './assets/style/components/App.module.scss'
 import Layout from "./components/Layout.vue";
 import DefaultInput from './components/inputs/DefaultInput.vue';
 import { reactive, ref, watch } from 'vue'
