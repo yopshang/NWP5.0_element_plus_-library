@@ -96,21 +96,27 @@ watch(textAreaValue, ()=>{
           :initValue="'測試初始值'"
           :beforeSubmitVerificationTrigger="defaultForceVerificationTrigger"
         ></DefaultInput>
+        <!-- {{ defaultInputValue }} -->
         <!-- <button 
           type="button"
           style="color:white;"
           @click="defaultForceVerificationTrigger++">測試送出按鈕</button> -->
+        <!-- <button 
+          type="button"
+          style="color:white;"
+          @click="defaultResetTrigger++">測試reset</button> -->
       </Layout>
       <Layout>
         <DefaultInput
           @set-input-value="setBigDefaultInputValue"
-          :title="'標題'"
+          :title="'大input標題'"
           :placeholder="'請輸入關鍵字'"
           :approved="bigDefaultApproved"
           :disabled="false"
           :tips="bigDefaultInputTips"
           :resetTrigger="bigDefaultResetTrigger"
           :customStyle="'height:48px;font-size:16px;'"
+          :tipsCustomStyle="'font-size:16px;'"
         ></DefaultInput>
       </Layout>
       <Layout>
@@ -192,8 +198,8 @@ watch(textAreaValue, ()=>{
           :show-word-limit="false"
       ></TextArea>
     </Layout>
-    <Layout>
-      <!-- <TextArea
+    <!-- <Layout>
+      <TextArea
           @set-input-value="setPassWordValue"
           :title="'標題'"
           :placeholder="'請輸入關鍵字'"
@@ -205,8 +211,9 @@ watch(textAreaValue, ()=>{
           :maxlength="false"
           :show-password="true"
           :show-word-limit="false"
-      ></TextArea> -->
-    </Layout>
+      ></TextArea>
+    </Layout> -->
+
   </el-row>
 </template>
 <style>
