@@ -31,14 +31,23 @@
     </div>
 </template>
 <style lang="scss">
+@import '../../assets/style/variable.scss';
     .textArea {
-        .el-input__suffix {
-            transform: translate(14px, 32px);
+        // .el-input__suffix {
+        //     transform: translate(14px, 32px);
+        // }
+        &.hover:not(.error) .el-textarea__inner{
+            box-shadow: 0 0 0 1px $default-input-outline-color--hover;
         }
-        .el-textarea__inner:focus {
-            // box-shadow: 0 0 0 1px #3B82F6;
-            border:1px #3B82F6 solid;
+        &.focus .el-textarea__inner:focus{
+            border:1px $default-input-outline-color--hover solid;
             box-shadow: 0px 0px 16px 0px rgba(0, 0, 0, 0.2);
+        }
+        &.default:not(.error) .el-textarea__inner{
+            box-shadow: 0 0 0 1px $default-input-outline-color;
+        }
+        &.error .el-textarea__inner {
+            box-shadow: 0 0 0 1px $default-input-outline-color--error !important;
         }
     }
 </style>
