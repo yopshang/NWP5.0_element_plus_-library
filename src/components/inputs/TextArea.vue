@@ -63,9 +63,9 @@
                 box-shadow: 0 0 0 1px $default-input-outline-color--error !important;
             }
         }
-        // &.is-disabled>.el-textarea__inner{
-        //     background: $default-input-background-color--disabled !important;
-        // }
+        .el-textarea.is-disabled>.el-textarea__inner{
+            background: $default-input-background-color--disabled !important;
+        }
     }
 </style>
 <script setup>
