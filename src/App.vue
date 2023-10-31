@@ -196,6 +196,7 @@ watch(textAreaValue, ()=>{
           :maxlength="false"
           :show-password="false"
           :show-word-limit="false"
+          :custom-ref="'defaultTextArea'"
       ></TextArea>
     </Layout>
     <!-- <Layout>

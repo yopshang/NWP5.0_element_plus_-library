@@ -13,6 +13,7 @@
         :show-password="showPassword"
         :maxlength="maxlength"
         :show-word-limit="showWordLimit"
+        :custom-ref="customRef"
         @focus="userInputEvent('focus');ifFirstFocus = false"
         @blur="userInputEvent('blur')"
         @mouseover="changeStatusTo('hover')"
@@ -68,13 +69,13 @@
 }
 </style>
 <script setup>
-import { ref, defineProps, defineEmits, watchEffect, watch } from 'vue'
+import { ref, defineProps, defineEmits, watchEffect, watch, onMounted } from 'vue'
 import DefaultInputStyle from '../../assets/style/components/DefaultInput.module.scss'
 
 const modelValue = ref('')
 const checkInputStatus = ref('')
 const showTips = ref(false)
-const emitModelValue = defineEmits(['setInputValue'])
+const emitModelValue = defineEmits(['setInputValue','handleResize'])
 const ifFirstFocus = ref(true)
 const props = defineProps({
     title: String,  // 標題
@@ -94,6 +95,7 @@ const props = defineProps({
     initValue: [String,Number], // 傳入初始值
     beforeSubmitVerificationTrigger: Number, // 強制出現驗證樣式（直接送出前呼叫）
     tipsCustomStyle: String,
+    customRef: String
 })
 // 傳值到父層
 watchEffect(() => {
@@ -145,6 +147,10 @@ function userInputEvent(inputStatus){
 }
 // 父層傳入的初始值
 modelValue.value = props.initValue;
+const customRefName = ref(props.customRef)
 
+onMounted(()=>{
+    console.log('customRef in default input:', customRefName);
+})
 
 </script>
