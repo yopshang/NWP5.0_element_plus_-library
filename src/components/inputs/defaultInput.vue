@@ -75,7 +75,7 @@ import DefaultInputStyle from '../../assets/style/components/DefaultInput.module
 const modelValue = ref('')
 const checkInputStatus = ref('')
 const showTips = ref(false)
-const emitModelValue = defineEmits(['setInputValue','handleResize'])
+const emitModelValue = defineEmits(['setInputValue'])
 const ifFirstFocus = ref(true)
 const props = defineProps({
     title: String,  // 標題
@@ -147,10 +147,6 @@ function userInputEvent(inputStatus){
 }
 // 父層傳入的初始值
 modelValue.value = props.initValue;
-const customRefName = ref(props.customRef)
 
-onMounted(()=>{
-    console.log('customRef in default input:', customRefName);
-})
 
 </script>

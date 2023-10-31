@@ -196,7 +196,7 @@ watch(textAreaValue, ()=>{
           :maxlength="false"
           :show-password="false"
           :show-word-limit="false"
-          :custom-ref="'defaultTextArea'"
+          :initValue="'測試初始值'"
       ></TextArea>
     </Layout>
     <!-- <Layout>

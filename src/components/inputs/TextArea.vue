@@ -1,5 +1,5 @@
 <template>
-    <div :class="TextAreaStyle.TextAreaContainer">
+    <div :class="TextAreaStyle.TextAreaContainer" class="textArea">
         <div :class="DefaultInputStyle.title">{{ title }}</div>
         <el-input
             class="w-50 m-2"
@@ -13,7 +13,6 @@
             :show-password="showPassword"
             :maxlength="maxlength"
             :show-word-limit="showWordLimit"
-            :custom-ref="customRef"
             @focus="userInputEvent('focus');ifFirstFocus = false"
             @blur="userInputEvent('blur')"
             @mouseover="changeStatusTo('hover')"
@@ -40,25 +39,33 @@
         // .el-input__suffix {
         //     transform: translate(14px, 32px);
         // }
-        &.hover:not(.error) .el-textarea__inner{
+        .el-textarea.hover:not(.error) .el-textarea__inner{
             box-shadow: 0 0 0 1px $default-input-outline-color--hover;
         }
-        &.focus .el-textarea__inner{
+        .el-textarea.focus .el-textarea__inner{
             border:1px $default-input-outline-color--hover solid;
             box-shadow: 0px 0px 16px 0px rgba(0, 0, 0, 0.2);
         }
-        &.default:not(.error) .el-textarea__inner{
+        .el-textarea.default:not(.error) .el-textarea__inner{
             box-shadow: 0 0 0 1px $default-input-outline-color;
         }
-        &.error .el-textarea__inner {
+        .el-textarea.error .el-textarea__inner {
             box-shadow: 0 0 0 1px $default-input-outline-color--error !important;
         }
         .el-textarea__inner {
             height: 36px;
         }
-        .el-textarea {
-            margin-left: -20px;
+        // .el-textarea {
+        //     margin-left: -20px;
+        // }
+        .el-textarea.error {
+            .el-textarea__inner {
+                box-shadow: 0 0 0 1px $default-input-outline-color--error !important;
+            }
         }
+        // &.is-disabled>.el-textarea__inner{
+        //     background: $default-input-background-color--disabled !important;
+        // }
     }
 </style>
 <script setup>
@@ -71,8 +78,8 @@ import DefaultInput from './DefaultInput.vue';
 const modelValue = ref('')
 const checkInputStatus = ref('')
 const showTips = ref(false)
-const emitModelValue = defineEmits(['modelValue'])
-// const approved_move_Y = ref(0)
+const ifFirstFocus = ref(true)
+const emitModelValue = defineEmits(['setInputValue'])
 const props = defineProps({
     title: String,
     placeholder: String,Number,
@@ -89,7 +96,6 @@ const props = defineProps({
     customClass: String,
     initValue: String,Number, // 傳入初始值
     beforeSubmitVerificationTrigger: Number, // 強制出現驗證樣式（直接送出前呼叫）
-    customRef: String
 })
 watchEffect(() => {
     emitModelValue('setInputValue', modelValue.value)
@@ -99,18 +105,13 @@ watch(()=>props.resetTrigger, ()=>{
     changeStatusTo('blur')
     showTips.value = false;
 })
-watch(()=>props.approved,()=>{
-    console.log('textArea props.type:',props.type)
-})
 
-// const approved_move_Y = computed(()=>{
-//     const textArea = this.$refs.TextArea.$refs.textarea; // 获取 TextArea 元素
-//       const height = textArea.clientHeight; // 获取 TextArea 的高度
-//       console.log('TextArea 的高度：', height);
-//     return 0
-// })
-
+// 控制輸入框狀態
 function changeStatusTo(thisStatus){
+    if(!props.approved && !ifFirstFocus.value){ // 第一次 focus前不進行錯誤判定
+        checkInputStatus.value = 'error';
+        return
+    }
     switch(thisStatus){
         case 'focus':
             checkInputStatus.value = 'focus';
@@ -129,17 +130,17 @@ function changeStatusTo(thisStatus){
             break;
     }
 }
+// 控制有警示字樣的輸入框狀態
 function userInputEvent(inputStatus){
-    showTips.value = true;
-    let changeStatusToThis = props.approved?inputStatus:'error';
-    changeStatusTo(changeStatusToThis)
+    // if(props.tips == '') return
+    // 轉為非同步避免樣式過早判定
+    setTimeout(function(){
+            showTips.value = true;
+            changeStatusTo(inputStatus)
+    },0)
 }
-function setModelValue(data){
-    modelValue.value = data
-}
-function handleResize(textAreaHeight){
-    console.log('textAreaHeight:', textAreaHeight);
-}
+// 父層傳入的初始值
+modelValue.value = props.initValue;
 
 
 
