@@ -149,7 +149,7 @@ watch(textAreaValue, ()=>{
       <Layout>
         <LimitedInput
           @set-input-value="setPassWordValue"
-          :title="'標題'"
+          :title="'標題字數限制'"
           :placeholder="'請輸入關鍵字'"
           :approved="true"
           :disabled="disabled"
@@ -199,21 +199,21 @@ watch(textAreaValue, ()=>{
           :initValue="'測試初始值'"
       ></TextArea>
     </Layout>
-    <!-- <Layout>
+    <Layout>
       <TextArea
-          @set-input-value="setPassWordValue"
-          :title="'標題'"
+          @set-input-value="setTextAreaValue"
+          :title="'TextArea字數限制'"
           :placeholder="'請輸入關鍵字'"
           :approved="true"
-          :disabled="disabled"
+          :disabled="false"
           :tips="textAreaTips"
-          :resetTrigger="resetPasswordTrigger"
-          :type="'textarea'"
-          :maxlength="false"
-          :show-password="true"
-          :show-word-limit="false"
+          :resetTrigger="resetTextAreaTrigger"
+          :show-password="false"
+          :initValue="'測試初始值'"
+          :maxlength="200"
+          :show-word-limit="true"
       ></TextArea>
-    </Layout> -->
+    </Layout>
 
   </el-row>
 </template>

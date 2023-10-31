@@ -10,7 +10,6 @@
             :placeholder="placeholder"
             :disabled="disabled"
             type="textarea"
-            :show-password="showPassword"
             :maxlength="maxlength"
             :show-word-limit="showWordLimit"
             @focus="userInputEvent('focus');ifFirstFocus = false"
@@ -36,9 +35,9 @@
 <style lang="scss">
 @import '../../assets/style/variable.scss';
     .textArea {
-        // .el-input__suffix {
-        //     transform: translate(14px, 32px);
-        // }
+        .el-input__count {
+            transform: translate(14px, 32px);
+        }
         .el-textarea.hover:not(.error) .el-textarea__inner{
             box-shadow: 0 0 0 1px $default-input-outline-color--hover;
         }
@@ -91,11 +90,11 @@ const props = defineProps({
     suffixIcon: Object,
     prefixIcon:Object,
     disabled: Boolean,
-    customStyle: String,
     maxlength: Number,Boolean,
     customClass: String,
     initValue: String,Number, // 傳入初始值
-    beforeSubmitVerificationTrigger: Number, // 強制出現驗證樣式（直接送出前呼叫）
+    beforeSubmitVerificationTrigger: Number, // 強制出現驗證樣式（直接送出前呼叫
+    showWordLimit:Boolean
 })
 watchEffect(() => {
     emitModelValue('setInputValue', modelValue.value)
