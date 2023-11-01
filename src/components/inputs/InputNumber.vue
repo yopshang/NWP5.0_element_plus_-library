@@ -61,18 +61,12 @@ function userInputEvent(inputStatus){
     &.focus{
         border:.1px $default-input-outline-color--hover solid;
         box-shadow: 0px 0px 16px 0px rgba(0, 0, 0, 0.2);
-        // color: $default-input-outline-color--hover
     }
     &.hover{
         box-shadow: 0 0 0 1px $default-input-outline-color--hover;
     }
-    // background: $default-input-background-color--disabled !important;
-
-    .el-input-number__increase,
-    .el-input-number__decrease {
-        &:not(.is-disabled):hover{
-            color:#3B82F6
-        }
+    &.is-disabled {
+        background: $default-input-background-color--disabled !important;
     }
 
 }
