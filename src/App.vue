@@ -6,6 +6,7 @@ import { reactive, ref, watch } from 'vue'
 import PasswordInput from './components/inputs/passwordInput.vue'
 import LimitedInput from './components/inputs/LimitedInput.vue'
 import TextArea from './components/inputs/TextArea.vue'
+import InputNumber from './components/inputs/InputNumber.vue'
 
 // default input
 const defaultInputValue = ref('')
@@ -214,7 +215,15 @@ watch(textAreaValue, ()=>{
           :show-word-limit="true"
       ></TextArea>
     </Layout>
-
+  </el-row>
+  <hr>
+  <el-row :gutter="20">
+    <el-col :span="24">
+      <h2>InputNumber</h2>
+    </el-col>
+    <Layout>
+      <InputNumber></InputNumber>
+    </Layout>
   </el-row>
 </template>
 <style>

@@ -1,5 +1,5 @@
 <template>
-    <el-col :span="8" :class="LayoutStyle['layout-bottom-gutter']">
+    <el-col :span="8" :class="[LayoutStyle['layout-bottom-gutter'], LayoutStyle['layout-style']]">
         <slot>
         </slot>
     </el-col>
