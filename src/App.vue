@@ -222,7 +222,7 @@ watch(textAreaValue, ()=>{
       <h2>InputNumber</h2>
     </el-col>
     <Layout>
-      <InputNumber></InputNumber>
+      <InputNumber :disabled="false"></InputNumber>
     </Layout>
   </el-row>
 </template>

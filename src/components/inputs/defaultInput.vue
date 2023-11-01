@@ -41,7 +41,6 @@
 .defaultInput {
     .hover:not(.textArea):not(.error),
     .hover:not(.error) .el-textarea__inner{
-        // border:1px $default-input-outline-color--hover solid;
         box-shadow: 0 0 0 1px $default-input-outline-color--hover;
     }
     .focus:not(.textArea),
@@ -50,12 +49,9 @@
         box-shadow: 0px 0px 16px 0px rgba(0, 0, 0, 0.2);
     }
     .default:not(.error) .el-input__wrapper{
-        // border:1px #E5E7EB solid;
         box-shadow: 0 0 0 1px $default-input-outline-color;
     }
     .error {
-        // box-shadow: 0 0 0 1px $default-input-outline-color--error;
-        // border:1px $default-input-outline-color--error solid;
         .el-input__wrapper {
             box-shadow: 0 0 0 1px $default-input-outline-color--error !important;
         }
