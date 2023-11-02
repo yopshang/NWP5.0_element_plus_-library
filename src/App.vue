@@ -7,6 +7,8 @@ import PasswordInput from './components/inputs/passwordInput.vue'
 import LimitedInput from './components/inputs/LimitedInput.vue'
 import TextArea from './components/inputs/TextArea.vue'
 import InputNumber from './components/inputs/InputNumber.vue'
+import InputNumberNoBtn from './components/inputs/InputNumberNoBtn.vue'
+import defaultButton from './components/button/defaultButton.vue'
 
 // default input
 const defaultInputValue = ref('')
@@ -68,6 +70,16 @@ watch(textAreaValue, ()=>{
   textAreaApproved.value = ifPass
 })
 
+// InputNumber
+const inputNumberValue = ref(0)
+function setInputNumberValue(data){
+  inputNumberValue.value = data
+}
+
+// button
+function submit(){
+  console.log(('button submit'));
+}
 
 </script>
 
@@ -222,7 +234,33 @@ watch(textAreaValue, ()=>{
       <h2>InputNumber</h2>
     </el-col>
     <Layout>
-      <InputNumber :disabled="false"></InputNumber>
+      <InputNumber
+        :disabled="false"
+        :initValue="inputNumberValue"
+        @set-input-value="setInputNumberValue"
+        ></InputNumber>
+    </Layout>
+  </el-row>
+  <hr>
+  <el-row :gutter="20">
+    <el-col :span="24">
+      <h2>Core</h2>
+      <Layout>
+        <InputNumberNoBtn
+        :approved="true"
+        ></InputNumberNoBtn>
+      </Layout>
+    </el-col>
+  </el-row>
+  <hr>
+  <el-row :gutter="20">
+    <el-col :span="24">
+      <h2>TextButton</h2>
+    </el-col>
+    <Layout>
+      <defaultButton
+        @submit="submit"
+      ></defaultButton>
     </Layout>
   </el-row>
 </template>

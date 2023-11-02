@@ -1,11 +1,12 @@
 <template>
-    <el-input-number
+    <input
         v-model="num"
-        class="InputNumber"
-        :class="[InputNumberStyle.defaultInputNumber,checkInputStatus]"
+        class="InputNumberNobtn"
+        :class="[InputNumberNoBtnStyle.InputNumberNoBtnStyle,checkInputStatus]"
         :min="1"
         :max="10"
         :disabled="disabled"
+        @input="replaceNonNumeric"
         @change="handleChange"
         @focus="userInputEvent('focus');ifFirstFocus = false"
         @blur="userInputEvent('blur')"
@@ -16,7 +17,8 @@
 
 <script setup>
 import { ref, defineProps, defineEmits } from 'vue'
-import InputNumberStyle from '../../assets/style/components/InputNumber.module.scss'
+// import InputNumberStyle from '../../assets/style/components/InputNumber.module.scss'
+import InputNumberNoBtnStyle from '../../assets/style/components/InputNumberNoBtn.module.scss'
 
 const num = ref(0)
 const ifFirstFocus = ref(true)
@@ -27,10 +29,15 @@ const handleChange = (value) => {
 }
 const props = defineProps({
     disabled: Boolean,
-    initValue: Number
+    initValue: Number,
+    approved: Boolean
 })
 // 控制輸入框狀態
 function changeStatusTo(thisStatus){
+    if(!props.approved && !ifFirstFocus.value){ // 第一次 focus前不進行錯誤判定
+        checkInputStatus.value = 'error';
+        return
+    }
     switch(thisStatus){
         case 'focus':
             checkInputStatus.value = 'focus';
@@ -40,6 +47,9 @@ function changeStatusTo(thisStatus){
             break;
         case 'hover':
             checkInputStatus.value = 'hover';
+            break;
+        case 'error':
+            checkInputStatus.value = 'error';
             break;
         default:
             checkInputStatus.value = 'default';
@@ -51,27 +61,49 @@ function userInputEvent(inputStatus){
     // if(props.tips == '') return
     // 轉為非同步避免樣式過早判定
     setTimeout(function(){
-            // showTips.value = true;
             changeStatusTo(inputStatus)
     },0)
 }
+// 替換掉非數字
+function replaceNonNumeric() {
+      num.value = num.value.replace(/\D/g, '');
+    }
 // 父層傳入的初始值
 num.value = props.initValue;
 
 </script>
 <style lang="scss">
 @import '../../assets/style/variable.scss';
-.InputNumber{
-    border-radius: 5px;
+.InputNumberNobtn{
+    &.default {
+        border:solid 1px $default-input-outline-color;
+    }
+    // &:focus-visible {
+    //     border:none;
+    // }
     &.focus{
-        border:.1px $default-input-outline-color--hover solid;
+        border:solid 1px $default-input-outline-color--hover;
         box-shadow: 0px 0px 16px 0px rgba(0, 0, 0, 0.2);
     }
     &.hover{
-        box-shadow: 0 0 0 1px $default-input-outline-color--hover;
+        // box-shadow: 0 0 0 1px $default-input-outline-color--hover;
+        border: solid 1px $default-input-outline-color--hover;
+        outline: none;
+    }
+    &.error {
+        box-shadow: 0 0 0 1px $default-input-outline-color--error !important;
     }
     &.is-disabled {
         background: $default-input-background-color--disabled !important;
+    }
+    input::-webkit-outer-spin-button,
+    input::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+    }
+
+    input[type=number] {
+        -moz-appearance: textfield;
     }
 
 }
