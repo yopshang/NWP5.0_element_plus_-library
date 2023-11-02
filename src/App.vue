@@ -260,6 +260,18 @@ function submit(){
     <Layout>
       <defaultButton
         @submit="submit"
+        :button-size="'large'"
+      ></defaultButton>
+    </Layout>
+    <Layout>
+      <defaultButton
+        @submit="submit"
+      ></defaultButton>
+    </Layout>
+    <Layout>
+      <defaultButton
+        @submit="submit"
+        :button-size="'small'"
       ></defaultButton>
     </Layout>
   </el-row>
