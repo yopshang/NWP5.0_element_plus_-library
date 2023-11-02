@@ -13,4 +13,8 @@
         background-color: $default-button-background-color;
         border-color: $default-button-background-color
     }
+    &:focus {
+        border: solid 1px white;
+        box-shadow: 0px 0px 0px 2px $default-button-outline-color;
+    }
 }
