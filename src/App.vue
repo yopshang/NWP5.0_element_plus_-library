@@ -272,6 +272,7 @@ function submit(){
       <defaultButton
         @submit="submit"
         :button-size="'small'"
+        :disabled="true"
       ></defaultButton>
     </Layout>
   </el-row>
