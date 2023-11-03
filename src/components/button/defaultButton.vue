@@ -8,7 +8,7 @@
         <div v-if="slots.left" class="icon-left">
             <slot name="left"></slot>
         </div>
-        Button
+        {{ title }}
         <div v-if="slots.right" class="icon-right">
             <slot name="right"></slot>
         </div>
@@ -20,6 +20,7 @@ import { defineEmits, defineProps, useSlots } from 'vue';
 const props = defineProps({
     buttonSize: String,
     disabled: Boolean,
+    title: String
 })
 const slots = useSlots();
 
@@ -40,10 +41,10 @@ function submitData(){
             height: 20px;
         }
         &-left {
-            margin-right: 12px;
+            margin-right: 16px;
         }
         &-right {
-            margin-left: 12px;
+            margin-left: 16px;
         }
     }
     &.large {

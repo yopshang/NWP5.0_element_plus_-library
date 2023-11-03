@@ -261,11 +261,13 @@ function submit(){
       <defaultButton
         @submit="submit"
         :button-size="'large'"
+        :title="'大按鈕'"
       ></defaultButton>
     </Layout>
     <Layout>
       <defaultButton
         @submit="submit"
+        :title="'右邊icon'"
       >
         <template #right>
           <svg width="14" height="17" viewBox="0 0 14 17" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -279,6 +281,7 @@ function submit(){
         @submit="submit"
         :button-size="'small'"
         :disabled="false"
+        :title="'左邊icon'"
       >
       <template #left>
         <svg width="14" height="17" viewBox="0 0 14 17" fill="none" xmlns="http://www.w3.org/2000/svg">
