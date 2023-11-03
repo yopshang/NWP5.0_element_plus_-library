@@ -1,7 +1,7 @@
 <template>
     <el-button
-        class="defaultButton"
-        :class="[buttonStyle.buttonStyle, buttonSize]"
+        class="customButton"
+        :class="[buttonStyle.button, buttonSize]"
         type="primary"
         @click="submitData"
         :disabled="disabled">
@@ -15,8 +15,8 @@
         </el-button>
 </template>
 <script setup>
-import primaryButtonStyle from '../../assets/style/components/defaultButton.module.scss';
-import secondaryButtonStyle from '../../assets/style/components/secondaryButton.module copy.scss';
+import primaryButtonStyle from '../../assets/style/components/primaryButton.module.scss';
+import secondaryButtonStyle from '../../assets/style/components/secondaryButton.module.scss';
 import { defineEmits, defineProps, useSlots, reactive, computed } from 'vue';
 const props = defineProps({
     buttonSize: String,
@@ -35,9 +35,10 @@ const buttonStyle = reactive(
             default:
                 return primaryButtonStyle;
         }
-     })
+    })
 )
-
+console.log('primaryButtonStyle:', primaryButtonStyle);
+console.log('secondaryButtonStyle:', secondaryButtonStyle);
 
 
 const submit = defineEmits(['submit'])
@@ -50,7 +51,7 @@ function submitData(){
 </script>
 <style lang="scss">
 @import '../../assets/style/variable.scss';
-.defaultButton {
+.customButton {
     .icon{
         &-left,
         &-right {
