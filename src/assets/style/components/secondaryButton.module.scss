@@ -11,8 +11,12 @@
     &:hover,
     &:active,
     &:focus {
+        color: $secondary-button-text-color;
         background-color: $secondary-button-background-color;
         border-color: $secondary-button-background-color
+    }
+    &:hover {
+        box-shadow: 0 0 10px 1px rgba(0,0,0, .12);;
     }
     &:focus {
         border: solid 1px white;
