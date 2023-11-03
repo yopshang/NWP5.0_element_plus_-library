@@ -1,7 +1,7 @@
 <template>
     <el-button
         class="defaultButton"
-        :class="[defaultButtonStyle.defaultButtonStyle, buttonSize]"
+        :class="[buttonStyle.buttonStyle, buttonSize]"
         type="primary"
         @click="submitData"
         :disabled="disabled">
@@ -15,19 +15,36 @@
         </el-button>
 </template>
 <script setup>
-import defaultButtonStyle from '../../assets/style/components/defaultButton.module.scss'
-import { defineEmits, defineProps, useSlots } from 'vue';
+import primaryButtonStyle from '../../assets/style/components/defaultButton.module.scss';
+import secondaryButtonStyle from '../../assets/style/components/secondaryButton.module copy.scss';
+import { defineEmits, defineProps, useSlots, reactive, computed } from 'vue';
 const props = defineProps({
     buttonSize: String,
     disabled: Boolean,
-    title: String
+    title: String,
+    buttonType: String,
 })
 const slots = useSlots();
+const buttonStyle = reactive(
+    computed(() => {
+        switch(props.buttonType){
+            case 'primaryButtonStyle':
+                return primaryButtonStyle;
+            case 'secondaryButtonStyle':
+                return secondaryButtonStyle
+            default:
+                return primaryButtonStyle;
+        }
+     })
+)
+
+
 
 const submit = defineEmits(['submit'])
 function submitData(){
     submit('submit')
 }
+
 
 
 </script>
@@ -85,9 +102,9 @@ function submitData(){
     }
     &.is-disabled,
     &.is-disabled:hover{
-        background-color: $default-button-background-color--disabled;
-        color: $default-button-color--disabled;
-        border-color: $default-button-background-color--disabled;
+        background-color: $primary-button-background-color--disabled;
+        color: $primary-button-color--disabled;
+        border-color: $primary-button-background-color--disabled;
     }
 }
 

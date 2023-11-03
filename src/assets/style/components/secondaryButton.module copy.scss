@@ -1,0 +1,20 @@
+@import '../variable.scss';
+.buttonStyle {
+    // width: 80px;
+    height: 36px;
+    padding: 8px 16px;
+    font-size: 14px;
+    line-height: 20px;
+    background-color: $secondary-button-background-color;
+    border-color: $secondary-button-background-color;
+    &:hover,
+    &:active,
+    &:focus {
+        background-color: $secondary-button-background-color;
+        border-color: $secondary-button-background-color
+    }
+    &:focus {
+        border: solid 1px white;
+        box-shadow: 0px 0px 0px 2px $secondary-button-outline-color;
+    }
+}
