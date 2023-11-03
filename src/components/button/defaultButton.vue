@@ -5,13 +5,13 @@
         type="primary"
         @click="submitData"
         :disabled="disabled">
-        <!-- <div v-if="slots[left-icon]" class="icon-left"> -->
-            <slot name="left-icon"></slot>
-        <!-- </div> -->
+        <div v-if="slots.left" class="icon-left">
+            <slot name="left"></slot>
+        </div>
         Button
-        <!-- <div v-if="slots[right-icon]" class="icon-right"> -->
-            <slot name="right-icon"></slot>
-        <!-- </div> -->
+        <div v-if="slots.right" class="icon-right">
+            <slot name="right"></slot>
+        </div>
         </el-button>
 </template>
 <script setup>
@@ -21,7 +21,8 @@ const props = defineProps({
     buttonSize: String,
     disabled: Boolean,
 })
-const slots = useSlots()
+const slots = useSlots();
+
 const submit = defineEmits(['submit'])
 function submitData(){
     submit('submit')
@@ -38,6 +39,12 @@ function submitData(){
             width: 20px;
             height: 20px;
         }
+        &-left {
+            margin-right: 12px;
+        }
+        &-right {
+            margin-left: 12px;
+        }
     }
     &.large {
         font-size: 16px;
@@ -49,6 +56,12 @@ function submitData(){
                 width: 24px;
                 height: 24px;
             }
+            &-left {
+                margin-right: 12px;
+            }
+            &-right {
+                margin-left: 12px;
+            }
         }
     }
     &.small {
@@ -58,11 +71,14 @@ function submitData(){
         .icon{
             &-left,
             &-right {
-                width: 16px;
-                height: 16px;
+                width: 14px;
+                height: 17px;
+            }
+            &-left {
+                margin-right: 12px;
             }
             &-right {
-                margin-right: 12px;
+                margin-left: 12px;
             }
         }
     }
