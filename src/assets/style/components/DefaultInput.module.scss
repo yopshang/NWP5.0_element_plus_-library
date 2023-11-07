@@ -24,8 +24,8 @@
     border:1px #E5E7EB solid;
     margin-bottom: 4px;
     &.focus{
-        // border:1px $default-input-outline-color--hover solid;
-        box-shadow: 0 0 0 1px $default-input-outline-color--hover;
+        @extend .default-input-outline--hover;
+        // box-shadow: 0 0 0 1px $default-input-outline-color--hover;
     }
     &.error{
         // border:1px $default-input-outline-color--error solid;

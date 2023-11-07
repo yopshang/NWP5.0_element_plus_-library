@@ -106,6 +106,9 @@ function submitData(){
         background-color: $primary-button-background-color--disabled;
         color: $primary-button-color--disabled;
         border-color: $primary-button-background-color--disabled;
+        svg {
+            // fill: red;
+        }
     }
 }
 

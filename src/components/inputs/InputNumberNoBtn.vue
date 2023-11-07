@@ -76,18 +76,16 @@ num.value = props.initValue;
 @import '../../assets/style/variable.scss';
 .InputNumberNobtn{
     &.default {
-        border:solid 1px $default-input-outline-color;
+        @extend .default-input-border;
     }
-    // &:focus-visible {
-    //     border:none;
-    // }
     &.focus{
-        border:solid 1px $default-input-outline-color--hover;
-        box-shadow: 0px 0px 16px 0px rgba(0, 0, 0, 0.2);
+        @extend .default-input-outline--focus;
+        // border:solid 1px $default-input-outline-color--hover;
+        // box-shadow: 0px 0px 16px 0px rgba(0, 0, 0, 0.2);
     }
     &.hover{
-        // box-shadow: 0 0 0 1px $default-input-outline-color--hover;
-        border: solid 1px $default-input-outline-color--hover;
+        @extend .default-input-border--hover;
+        // border: solid 1px $default-input-outline-color--hover;
         outline: none;
     }
     &.error {

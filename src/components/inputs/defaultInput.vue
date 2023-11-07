@@ -41,15 +41,18 @@
 .defaultInput {
     .hover:not(.textArea):not(.error),
     .hover:not(.error) .el-textarea__inner{
-        box-shadow: 0 0 0 1px $default-input-outline-color--hover;
+        @extend .default-input-outline--hover;
+        // box-shadow: 0 0 0 1px $default-input-outline-color--hover;
     }
     .focus:not(.textArea),
     .focus-visible:not(.textArea){
-        border:1px $default-input-outline-color--hover solid;
-        box-shadow: 0px 0px 16px 0px rgba(0, 0, 0, 0.2);
+        @extend .default-input-outline--focus;
+        // border:1px $default-input-outline-color--hover solid;
+        // box-shadow: 0px 0px 16px 0px rgba(0, 0, 0, 0.2);
     }
     .default:not(.error) .el-input__wrapper{
-        box-shadow: 0 0 0 1px $default-input-outline-color;
+        @extend .default-input-outline;
+        // box-shadow: 0 0 0 1px $outline-grey;
     }
     .error {
         .el-input__wrapper {

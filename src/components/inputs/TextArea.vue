@@ -39,14 +39,16 @@
             transform: translate(14px, 32px);
         }
         .el-textarea.hover:not(.error) .el-textarea__inner{
-            box-shadow: 0 0 0 1px $default-input-outline-color--hover;
+            @extend .default-input-outline--hover;
+            // box-shadow: 0 0 0 1px $default-input-outline-color--hover;
         }
         .el-textarea.focus .el-textarea__inner{
-            border:1px $default-input-outline-color--hover solid;
-            box-shadow: 0px 0px 16px 0px rgba(0, 0, 0, 0.2);
+            @extend .default-input-outline--focus;
+            // border:1px $default-input-outline-color--hover solid;
+            // box-shadow: 0px 0px 16px 0px rgba(0, 0, 0, 0.2);
         }
         .el-textarea.default:not(.error) .el-textarea__inner{
-            box-shadow: 0 0 0 1px $default-input-outline-color;
+            box-shadow: 0 0 0 1px $outline-grey;
         }
         .el-textarea.error .el-textarea__inner {
             box-shadow: 0 0 0 1px $default-input-outline-color--error !important;

@@ -64,11 +64,13 @@ num.value = props.initValue;
 .InputNumber{
     border-radius: 5px;
     &.focus{
-        border:.1px $default-input-outline-color--hover solid;
-        box-shadow: 0px 0px 16px 0px rgba(0, 0, 0, 0.2);
+        @extend .default-input-outline--focus;
+        // border:.1px $default-input-outline-color--hover solid;
+        // box-shadow: 0px 0px 16px 0px rgba(0, 0, 0, 0.2);
     }
     &.hover{
-        box-shadow: 0 0 0 1px $default-input-outline-color--hover;
+        @extend .default-input-outline--hover;
+        // box-shadow: 0 0 0 1px $default-input-outline-color--hover;
     }
     &.is-disabled {
         background: $default-input-background-color--disabled !important;
