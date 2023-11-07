@@ -89,7 +89,8 @@ num.value = props.initValue;
         outline: none;
     }
     &.error {
-        box-shadow: 0 0 0 1px $default-input-outline-color--error !important;
+        @extend .default-input-outline--error;
+        // box-shadow: 0 0 0 1px $default-input-outline-color--error !important;
     }
     &.is-disabled {
         background: $default-input-background-color--disabled !important;

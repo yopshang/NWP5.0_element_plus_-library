@@ -1,15 +1,20 @@
 // $default-input-outline-color: #E5E7EB;
 // $default-input-outline-color--hover: #3B82F6;
+// $default-input-outline-color--success: #65A30D;
+// $default-input-outline-color--error: #DC2626;
+// $default-input-title-color: #1F2937;
+// $default-input-tips-color--error: #DC2626;
+
 $outline-grey: #E5E7EB;
 $outline-blue: #3B82F6;
+// $outline-green: #65A30D;
+$outline-red: #DC2626;
+$outline-black: #1F2937;
 
 
-$default-input-outline-color--success: #65A30D;
-$default-input-outline-color--error: #DC2626;
 
-$default-input-title-color: #1F2937;
 
-$default-input-tips-color--error: #DC2626;
+
 $default-input-tips-color--success: #65A30D;
 
 $default-input-background-color--disabled: #F3F4F6;
@@ -43,5 +48,19 @@ $secondary-button-text-color: #1E40AF;
     border:solid 1px $outline-blue;
     box-shadow: 0px 0px 16px 0px rgba(0, 0, 0, 0.2);
 }
+.default-input-outline--error {
+    box-shadow: 0 0 0 1px $outline-red !important;
+}
 
+// 文字顏色
+.default-input-title-color {
+    color: $outline-black;
+}
+.input-tips-color--error {
+    color: $outline-red;
+}
 
+// icon顏色
+.icon--fail {
+    fill: $outline-red;
+}

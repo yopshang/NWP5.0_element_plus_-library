@@ -9,13 +9,13 @@
     position: relative;
 }
 .title {
+    @extend .default-input-title-color;
     font-size: 14px;
     line-height: 20px;
     font-weight: 400;
     font-family: 'Noto Sans TC';
     text-align: left;
     margin-bottom: 4px;
-    color: $default-input-title-color;
 }
 .custom_input {
     width: 300px;
@@ -28,9 +28,8 @@
         // box-shadow: 0 0 0 1px $default-input-outline-color--hover;
     }
     &.error{
-        // border:1px $default-input-outline-color--error solid;
-        box-shadow: 0 0 0 1px $default-input-outline-color--error;
-
+        @extend .default-input-outline--error;
+        // box-shadow: 0 0 0 1px $default-input-outline-color--error;
     }
 }
 .tips{
@@ -44,9 +43,11 @@
         }
     }
     &--fail {
-        color: $default-input-tips-color--error;
+        @extend .input-tips-color--error;
+        // color: $default-input-tips-color--error;
         >svg {
-            fill: $default-input-tips-color--error
+            @extend .icon--fail;
+            // fill: $default-input-tips-color--error
         }
     }
     > svg {

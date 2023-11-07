@@ -56,7 +56,8 @@
     }
     .error {
         .el-input__wrapper {
-            box-shadow: 0 0 0 1px $default-input-outline-color--error !important;
+            @extend .default-input-outline--error;
+            // box-shadow: 0 0 0 1px $default-input-outline-color--error !important;
         }
     }
     .is-disabled>.el-input__wrapper{
@@ -68,7 +69,7 @@
 }
 </style>
 <script setup>
-import { ref, defineProps, defineEmits, watchEffect, watch, onMounted } from 'vue'
+import { ref, defineProps, defineEmits, watchEffect, watch } from 'vue'
 import DefaultInputStyle from '../../assets/style/components/DefaultInput.module.scss'
 
 const modelValue = ref('')

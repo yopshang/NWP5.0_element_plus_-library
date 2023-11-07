@@ -51,7 +51,8 @@
             box-shadow: 0 0 0 1px $outline-grey;
         }
         .el-textarea.error .el-textarea__inner {
-            box-shadow: 0 0 0 1px $default-input-outline-color--error !important;
+            @extend .default-input-outline--error;
+            // box-shadow: 0 0 0 1px $default-input-outline-color--error !important;
         }
         .el-textarea__inner {
             height: 36px;
@@ -61,7 +62,8 @@
         // }
         .el-textarea.error {
             .el-textarea__inner {
-                box-shadow: 0 0 0 1px $default-input-outline-color--error !important;
+                @extend .default-input-outline--error;
+                // box-shadow: 0 0 0 1px $default-input-outline-color--error !important;
             }
         }
         .el-textarea.is-disabled>.el-textarea__inner{
