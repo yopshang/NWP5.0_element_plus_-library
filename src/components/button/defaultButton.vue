@@ -103,9 +103,10 @@ function submitData(){
     }
     &.is-disabled,
     &.is-disabled:hover{
-        background-color: $primary-button-background-color--disabled;
-        color: $primary-button-color--disabled;
-        border-color: $primary-button-background-color--disabled;
+        @extend .bg-disabled, .border-disabled, .text-disabled;
+        // background-color: $primary-button-background-color--disabled;
+        // color: $primary-button-color--disabled;
+        // border-color: $primary-button-background-color--disabled;
         svg {
             // fill: red;
         }

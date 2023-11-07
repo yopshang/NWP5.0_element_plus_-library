@@ -281,7 +281,7 @@ function submit(){
       <defaultButton
         @submit="submit"
         :button-size="'small'"
-        :disabled="false"
+        :disabled="true"
         :title="'左邊icon'"
         :buttonType="'primaryButtonStyle'"
       >

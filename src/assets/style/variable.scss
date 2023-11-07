@@ -6,22 +6,24 @@
 // $default-input-tips-color--error: #DC2626;
 // $default-input-tips-color--success: #65A30D;
 // $default-input-background-color--disabled: #F3F4F6;
+// $primary-button-background-color: #1E40AF;
+// $primary-button-outline-color: #60A5FA;
+// $primary-button-background-color--disabled: #F3F4F6;
+// $primary-button-color--disabled: #9CA3AF;
 
 $outline-grey: #E5E7EB;
 $outline-blue: #3B82F6;
+$primary-blue-light: #60A5FA;
 // $outline-green: #65A30D;
 $outline-red: #DC2626;
 $outline-black: #1F2937;
+
 $text-color-green: #65A30D;
+$text-color--disabled: #9CA3AF;
+
 $bg-grey: #F3F4F6;
+$bg-blue: #1E40AF;
 
-
-
-
-$primary-button-background-color: #1E40AF;
-$primary-button-outline-color: #60A5FA;
-$primary-button-background-color--disabled: #F3F4F6;
-$primary-button-color--disabled: #9CA3AF;
 
 $secondary-button-background-color: #DBEAFE;
 $secondary-button-outline-color: #60A5FA;
@@ -29,7 +31,7 @@ $secondary-button-background-color--disabled: #F3F4F6;
 $secondary-button-color--disabled: #9CA3AF;
 $secondary-button-text-color: #1E40AF;
 
-// 外框邊線
+// 外框顏色
 .default-input-outline{
     box-shadow: 0 0 0 1px $outline-grey;
 }
@@ -50,6 +52,16 @@ $secondary-button-text-color: #1E40AF;
 .default-input-outline--error {
     box-shadow: 0 0 0 1px $outline-red !important;
 }
+.border-disabled {
+    border-color: $bg-grey
+}
+.primary-button-border-color {
+    border-color: $bg-blue;
+}
+.primary-button-outline-color {
+    border: solid 1px white;
+    box-shadow: 0px 0px 0px 2px $primary-blue-light;
+}
 
 // 文字顏色
 .default-input-title-color {
@@ -60,6 +72,9 @@ $secondary-button-text-color: #1E40AF;
 }
 .default-input-tips-color--success {
     color: $text-color-green;
+}
+.text-disabled {
+    color: $text-color--disabled;
 }
 
 // icon顏色
@@ -74,3 +89,7 @@ $secondary-button-text-color: #1E40AF;
 .bg-disabled {
     background: $bg-grey!important;
 }
+.primary-button-background-color {
+    background: $bg-blue;
+}
+
