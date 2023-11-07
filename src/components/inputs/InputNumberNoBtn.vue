@@ -93,7 +93,8 @@ num.value = props.initValue;
         // box-shadow: 0 0 0 1px $default-input-outline-color--error !important;
     }
     &.is-disabled {
-        background: $default-input-background-color--disabled !important;
+        @extend .bg-disabled;
+        // background: $default-input-background-color--disabled !important;
     }
     input::-webkit-outer-spin-button,
     input::-webkit-inner-spin-button {

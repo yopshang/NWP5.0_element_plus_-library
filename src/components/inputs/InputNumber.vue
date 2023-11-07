@@ -73,7 +73,8 @@ num.value = props.initValue;
         // box-shadow: 0 0 0 1px $default-input-outline-color--hover;
     }
     &.is-disabled {
-        background: $default-input-background-color--disabled !important;
+        @extend .bg-disabled;
+        // background: $default-input-background-color--disabled !important;
     }
 
 }

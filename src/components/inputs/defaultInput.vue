@@ -61,7 +61,8 @@
         }
     }
     .is-disabled>.el-input__wrapper{
-        background: $default-input-background-color--disabled !important;
+        @extend .bg-disabled;
+        // background: $default-input-background-color--disabled !important;
     }
     .el-input__wrapper {
         box-shadow: none !important;

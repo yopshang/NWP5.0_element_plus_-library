@@ -37,9 +37,11 @@
     display: flex;
     align-items: center;
     &--success {
-        color: $default-input-tips-color--success;
+        @extend .default-input-tips-color--success;
+        // color: $default-input-tips-color--success;
         >svg{
-            fill: $default-input-tips-color--success
+            @extend .icon-success;
+            // fill: $default-input-tips-color--success
         }
     }
     &--fail {

@@ -67,7 +67,8 @@
             }
         }
         .el-textarea.is-disabled>.el-textarea__inner{
-            background: $default-input-background-color--disabled !important;
+            @extend .bg-disabled;
+            // background: $default-input-background-color--disabled !important;
         }
     }
 </style>
