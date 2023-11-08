@@ -12,6 +12,9 @@
 // $primary-button-color--disabled: #9CA3AF;
 // $secondary-button-background-color: #DBEAFE;
 // $secondary-button-outline-color: #60A5FA;
+// $secondary-button-background-color--disabled: #F3F4F6;
+// $secondary-button-color--disabled: #9CA3AF;
+// $secondary-button-text-color: #1E40AF;
 
 $outline-grey: #E5E7EB;
 $outline-blue: #3B82F6;
@@ -28,9 +31,6 @@ $bg-grey-dark: #DBEAFE;
 $bg-blue: #1E40AF;
 
 
-$secondary-button-background-color--disabled: #F3F4F6;
-$secondary-button-color--disabled: #9CA3AF;
-$secondary-button-text-color: #1E40AF;
 
 // 外框顏色
 .default-input-outline{
@@ -90,6 +90,9 @@ $secondary-button-text-color: #1E40AF;
 }
 .text-disabled {
     color: $text-color--disabled;
+}
+.secondary-button-text-color {
+    color: $bg-blue;
 }
 
 // icon顏色
