@@ -5,11 +5,11 @@
         type="primary"
         @click="submitData"
         :disabled="disabled">
-        <div v-if="slots.left" class="icon-left">
+        <div v-if="slots.left" class="icon icon-left">
             <slot name="left"></slot>
         </div>
         {{ title }}
-        <div v-if="slots.right" class="icon-right">
+        <div v-if="slots.right" class="icon icon-right">
             <slot name="right"></slot>
         </div>
         </el-button>
@@ -53,6 +53,7 @@ function submitData(){
 @import '../../assets/style/variable.scss';
 .customButton {
     .icon{
+        fill: white;
         &-left,
         &-right {
             width: 20px;
@@ -104,7 +105,8 @@ function submitData(){
     &.is-disabled:hover{
         @extend .bg-disabled, .border-disabled, .text-disabled;
         svg {
-            // fill: red;
+            @extend .icon-disabled;
+            // fill: text-disabled;
         }
     }
 }

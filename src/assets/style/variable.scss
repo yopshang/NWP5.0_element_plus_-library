@@ -83,6 +83,9 @@ $bg-blue: #1E40AF;
 .icon-success{
     fill: $text-color-green;
 }
+.icon-disabled {
+    fill: $text-color--disabled;
+}
 
 // 背景顏色
 .bg-disabled {
