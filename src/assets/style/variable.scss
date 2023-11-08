@@ -10,10 +10,12 @@
 // $primary-button-outline-color: #60A5FA;
 // $primary-button-background-color--disabled: #F3F4F6;
 // $primary-button-color--disabled: #9CA3AF;
+// $secondary-button-background-color: #DBEAFE;
+// $secondary-button-outline-color: #60A5FA;
 
 $outline-grey: #E5E7EB;
 $outline-blue: #3B82F6;
-$primary-blue-light: #60A5FA;
+$primary-blue-light: #60A5FA; 
 // $outline-green: #65A30D;
 $outline-red: #DC2626;
 $outline-black: #1F2937;
@@ -22,11 +24,10 @@ $text-color-green: #65A30D;
 $text-color--disabled: #9CA3AF;
 
 $bg-grey: #F3F4F6;
+$bg-grey-dark: #DBEAFE;
 $bg-blue: #1E40AF;
 
 
-$secondary-button-background-color: #DBEAFE;
-$secondary-button-outline-color: #60A5FA;
 $secondary-button-background-color--disabled: #F3F4F6;
 $secondary-button-color--disabled: #9CA3AF;
 $secondary-button-text-color: #1E40AF;
@@ -62,6 +63,20 @@ $secondary-button-text-color: #1E40AF;
     border: solid 1px white;
     box-shadow: 0px 0px 0px 2px $primary-blue-light;
 }
+.secondary-button-background-color {
+    border-color: $bg-grey-dark;
+}
+.secondary-button-outline-color {
+    border: solid 1px white;
+    box-shadow: 0px 0px 0px 2px $primary-blue-light;
+}
+.secondary-button-outline-color--hover {
+    box-shadow: 0 0 10px 1px rgba(0,0,0, .12);;
+}
+.secondary-button-outline-color--focus {
+    border: solid 1px white;
+    box-shadow: 0px 0px 0px 2px $primary-blue-light;
+}
 
 // 文字顏色
 .default-input-title-color {
@@ -91,5 +106,8 @@ $secondary-button-text-color: #1E40AF;
 }
 .primary-button-background-color {
     background: $bg-blue;
+}
+.secondary-button-background-color {
+    background-color: $bg-grey-dark;
 }
 
