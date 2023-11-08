@@ -25,11 +25,9 @@
     margin-bottom: 4px;
     &.focus{
         @extend .default-input-outline--hover;
-        // box-shadow: 0 0 0 1px $default-input-outline-color--hover;
     }
     &.error{
         @extend .default-input-outline--error;
-        // box-shadow: 0 0 0 1px $default-input-outline-color--error;
     }
 }
 .tips{
@@ -38,18 +36,14 @@
     align-items: center;
     &--success {
         @extend .default-input-tips-color--success;
-        // color: $default-input-tips-color--success;
         >svg{
             @extend .icon-success;
-            // fill: $default-input-tips-color--success
         }
     }
     &--fail {
         @extend .input-tips-color--error;
-        // color: $default-input-tips-color--error;
         >svg {
             @extend .icon--fail;
-            // fill: $default-input-tips-color--error
         }
     }
     > svg {

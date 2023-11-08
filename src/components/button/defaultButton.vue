@@ -67,7 +67,6 @@ function submitData(){
     }
     &.large {
         font-size: 16px;
-        // width: 87px;
         height: 48px;
         .icon{
             &-left,
@@ -104,9 +103,6 @@ function submitData(){
     &.is-disabled,
     &.is-disabled:hover{
         @extend .bg-disabled, .border-disabled, .text-disabled;
-        // background-color: $primary-button-background-color--disabled;
-        // color: $primary-button-color--disabled;
-        // border-color: $primary-button-background-color--disabled;
         svg {
             // fill: red;
         }
